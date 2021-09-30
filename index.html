@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        td {
+          border: 1px solid #000;  
+          color: #fff;    
+        }
+
+        tr:nth-child(even) {
+            background: brown;
+        }
+
+        tr:nth-child(odd) {
+            background: chocolate;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <form name="tbl">
+        <p>
+            <label> Сколько строк?
+            <input type="text" name="rows" size="1">
+            </label>
+        </p>
+        <p>
+            <label> Сколько столбцов?
+            <input type="text" name="cols" size="1">
+            </label>
+        </p>
+    <p>
+        <input type="button" value="Создать таблицу" onclick="createTable()">
+    </p>    
+
+    </form>
+
+    <div id="tab1"></div>
+
+    <script>
+
+        function createTable() {
+            // alert("Hello");
+
+        let row = tbl.rows.value; // кол-во строк   
+        let col = tbl.cols.value; // кол-во столбцов  
+            // console.log(row,col);
+
+           if (row != "" && col != "") {
+
+            let counter = 1;
+            let tab = "<table><tbody>";
+
+                for (i=1; i<=row; i++) {
+                    tab += "<tr>";
+
+                        for (j=1; j<=col; j++) {
+                    tab += `<td>Ячейка ${counter++}</td>`; 
+                        }
+                    tab += "</tr>";   
+                }
+            tab += "</tbody></table>";   
+            tab1.innerHTML = tab;
+            
+           } else alert("Заполните форму");
+
+        }
+
+        // createTable();
+
+    </script>
+
+
+    <!-- <table>
+        <tbody> 
+
+            <tr>
+                <td>Ячейка 1</td>
+                <td>Ячейка 2</td>
+                <td>Ячейка 3</td>
+            </tr>
+            <tr>
+                <td>Ячейка 4</td>
+                <td>Ячейка 5</td>
+                <td>Ячейка 6</td>
+            </tr>
+            <tr>
+                <td>Ячейка 7</td>
+                <td>Ячейка 8</td>
+                <td>Ячейка 9</td>
+            </tr>
+
+        </tbody>
+    </table> -->
+
+
+</body>
+</html>
